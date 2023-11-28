@@ -1,6 +1,7 @@
 /* Здесь вы напишете основную часть стилей страницы.
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно,
+чтобы в HTML некоторые классы были названы особым образом:
 ✦ theme-dark — класс тёмной темы
 ✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
@@ -13,8 +14,378 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-
 .page {
+  margin: 0 auto;
+  width: 48.612%;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image: var(--bg-gradient-image);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  display: grid;
+  background-color: var(--background-color);
+  margin-block-start: 100px;
+  border: 2px solid var(--accent-color);
+  font-family: 'PressStart2P', sans-serif;
+  font-weight: var(--text-weight);
+}
+
+.header__title {
+  margin-block-start: 136px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__subtitle {
+  margin-block-start: 20px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.heading {
+  text-align: center;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.theme-menu__button {
+  color: var(--accent-color);
+  font-size: 14px;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  position: relative;
+  transition-property: opacity, scaleX;
+  transition-duration: 0.3s;
+}
+
+.theme-menu__list {
+  display: grid;
+  justify-content: center;
+  gap: 14px;
+  margin: 25px 0;
+}
+
+.theme-menu__item {
+  max-width: 84px;                    /*???*/
+  max-height: 14px;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: slide 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes slide {
+  from {
+    left: -15px;
+  }
+
+  to {
+    left: -11px;
+  }
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  width: 90%;
+  left: 5px;
+  height: 2px;
+  top: 15px;
+  transform: scaleX(0);
+  transition-duration: 0.3s;
+  transform-origin: left center;
+}
+
+.theme-menu__button:focus-visible::after {
+  transition: var(--accent-color);
+  transform: scaleX(1);
+  transition-duration: 0.3s;
+}
+
+
+/* HEADER  */ /* HEADER  */ /* HEADER  */ /* HEADER  */ /* HEADER  */
+
+
+.content__block:first-child {
+  font-family: 'Inter', sans-serif;
+  background: var(--background-color);
+  margin-block-start: 100px;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  font-size: 18px;
+}
+.content__block {
+  font-family: 'Inter', sans-serif;
+  background: var(--background-color);
+  margin-block-start: 50px;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  font-size: 18px;
+}
+.main__title {
+  font-weight: var(title-weight);
+  font-size: 18px;
+  margin: 5px 0px 5px 10px;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-block-end: 2px solid var(--accent-color);
+  border-block-start: 2px solid var(--accent-color);
+  object-position: right;
+}
+.paragraph {
+  padding: 25px;
+  font-weight: var(--text-weight);
+  line-height: 21px;
+}
+.sub_paragraph {
+  padding:2px 25px 25px;
+  font-weight: var(--text-weight);
+  line-height: 21px;
+}
+.label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: 'PressStart2P', sans-serif;
+  font-size: 14px;
+  color: black;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;;
+  -webkit-text-stroke: 1px var(--button-accent-color);
+}
+.wrapper {
+  height: 700px;
+  position: relative;
+}
+.card__button-section {
+  display: flex;
+  justify-content: end;
+  margin-inline-end: 25px;
+  margin-block-end: 19px;
+}
+.card__like-button {
+  width: 130px;
+  height: 38px;
+}
+.button:focus-visible {
+  outline: none;
+  border: 2px solid var(--accent-color);
+  box-shadow: 2px 2px var(--accent-color);
+  transition: 0.3s ease;
+}
+.button__text {
+  font-family: 'PressStart2P', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+  color: var(--button-accent-color);
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 1;
+}
+.button {
+  position: relative;
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+.button::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.5s ease-in-out;
+}
+.button:hover::after {
+  width: 100%;
+}
+.card__icon-button {
+  margin-block-start: 2px;
+  border: none;
+  background-color: transparent;
+}
+.card__icon-button:focus{
+  border: none;
+  outline: none;
+}
+.card__icon-button:focus-visible{
+  outline: none;
+  border: 2px solid var(--accent-color);
+  transition: 0.3s ease;
+}
+.like-icon .core {
+  fill: var(--background-color);
+  transition: fill 0.3s 0.05s linear;
+}
+.like-icon .main-body {
+  fill: var(--background-color);
+  transition: fill 0.3s linear;
+}
+.like-icon .sparks {
+  opacity: 0;
+}
+.like-icon:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.05s linear;
+}
+.like-icon:active .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s linear;
+}
+.like-icon:active .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s linear;
+}
+.like-icon.is-liked .core {
+  fill: var(--heart-color);
+  transition: fill 0.3s linear;
+}
+.like-icon.is-liked .main-body {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.05s linear;  
+}
+.like-icon.is-liked .contour {
+  fill: var(--heart-color);
+  transition: fill 0.3s 0.06s linear;  
+}
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s alternate ease-in 0.3s;    
+}
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.like-icon.is-liked .heart {
+  animation: heart 0.3s alternate ease-in 0.1s;
+}
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.05);
+  }
+}
+/* Body */ /* Body */ /* Body */ /* Body */ /* Body */ /* Body */ /* Body */
+
+.footer {
+  display: flex;
+  margin: 50px 0 100px;
+  justify-content: center;
+}
+.footer__button {
+  font-size: 14px;
+  width: 339px;
+  height: 55px;
+  background-color: var(--background-color);
+}
+.footer__button-picture{
+  width: 21px;
+  height: 21px;
+  margin-inline-end: 8px;
+  color: var(--accent-color);
+}
+.footer__button-picture-modal {
+  width: 40px;
+  height: 40px;
+  margin-inline-end: 8px;
+  color: var(--accent-color);
+}
+.dialog-id {
+  display: grid;
+  gap: 30px;
+  padding: 31.5px;
+  width: 357px;
+  transition: opacity 0.3s ease-in-out;
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+  font-family: 'PressStart2P', sans-serif;
+  font-size: var(--title-weight);
+  color: var(--accent-color);
+  position: fixed;
+}
+.dialog-id:not([open]) {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.dialog-id::backdrop {
+  background-color: black;
+  opacity: 0.75;
+}
+.footer__container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.close-button {
+  width: 100%;
+  min-height: 38px;
+  padding: 9px 17px;
+}
+.footer__button-text {
+  width: 234px;
+  height: 63px;
+  font-family: 'PressStart2P', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  text-transform: uppercase;
+}
+@media (375px >=width) {
+  .page {
+   width: 100%;
+  }
+  .header__title {
+   margin-block-start: 120px;
+  }
+  .wrapper {
+    height: 375px;
+  }
+ 
+  .footer__button {
+    width: 310px;
+    height: 84px;
+  }
 }
