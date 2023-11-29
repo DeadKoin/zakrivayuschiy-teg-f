@@ -7,7 +7,7 @@
     <meta name="color-scheme" content="light dark" />
     <title>Закрывающий тег</title>
     <link rel="icon" href="./images/favicon.ico" sizes="any" />
-    <link rel="icon" href="./images/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="stylesheet" href="./styles/variables.css" />
@@ -20,8 +20,8 @@
 
   <body class="page">
     <header class="header">
-      <h1 class="header__title heading">&lt;/HTML&gt;</h1>
-      <h2 class="header__subtitle heading">закрывающий тег</h2>
+      <a class="header__title heading">&lt;/HTML&gt;</a>
+      <h1 class="header__subtitle heading">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
         <ul class="theme-menu__list">
@@ -58,7 +58,7 @@
         <div class="wrapper">
           <img
             class="image"
-            src="images/image.svg"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -118,8 +118,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image grayscale"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -180,8 +180,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image contrast"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -240,8 +240,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image sepia"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -302,8 +302,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image invert"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -364,8 +364,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image saturate"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -424,8 +424,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image blur"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -485,8 +485,8 @@
 
         <div class="wrapper">
           <img
-            class="image"
-            src="images/image.svg"
+            class="image many-filter"
+            src="./svg/image.svg"
             loading="lazy"
             alt="фургон"
           />
@@ -552,15 +552,15 @@
         onclick="window['dialog-id'].showModal();"
         aria-controls="dialog-id"
       >
-        <svg class="footer__button-picture">
-          <use href="/images/floppy.svg#floppy"></use>
+        <svg class="footer__button-picture" viewBox="0 0 39 39">
+          <use href="./svg/floppy.svg#floppy"></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
       <dialog class="dialog-id" id="dialog-id" aria-controls="dialog-id">
         <div class="footer__container">
           <svg class="footer__button-picture-modal">
-            <use href="/images/floppy-2.svg#floppy-2"></use>
+            <use href="./svg/floppy.svg#floppy"></use>
           </svg>
           <h3 class="footer__button-text">
             Вставьте дискету, чтобы продолжить
