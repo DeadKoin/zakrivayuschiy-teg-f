@@ -14,6 +14,20 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+/* -webkit-text-stroke: 1px var(--button-accent-color);  */
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter", Arial, sans-serif;
+  }
+}
+@supports ((text-stroke: 1px var(--button-accent-color)) or (-webkit-text-stroke: 1px var(--button-accent-color))){
+  .label {
+    -webkit-text-stroke: 1px var(--button-accent-color);
+    text-stroke: 1px var(--button-accent-color);
+    text-shadow: none;
+    mix-blend-mode: hard-light;
+  }
+}
 .page {
   margin: 0 auto;
   width: 48.612%;
@@ -22,6 +36,7 @@
   background-image: var(--bg-gradient-image);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
 }
 
 .header {
@@ -36,6 +51,7 @@
 .header__title {
   margin-block-start: 136px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  overflow: hidden;
 }
 
 .header__subtitle {
@@ -75,17 +91,9 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
+  top: 0px;
+  left: 0px;
   animation: slide 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes slide {
-  from {
-    left: -15px;
-  }
-
-  to {
-    left: -11px;
-  }
 }
 
 .theme-menu__button:hover {
@@ -117,22 +125,16 @@
 }
 
 .theme-menu__button:focus-visible::after {
-  transition: var(--accent-color);
   transform: scaleX(1);
-  transition-duration: 0.3s;
 }
 
 .content__block:first-child {
-  font-family: "Inter", Arial, sans-serif;
-  background: var(--background-color);
   margin-block-start: 100px;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  font-size: 18px;
 }
 
 .content__block {
   font-family: "Inter", Arial, sans-serif;
+  font-weight: var(--text-weight);
   background: var(--background-color);
   margin-block-start: 50px;
   color: var(--accent-color);
@@ -141,7 +143,7 @@
 }
 
 .main__title {
-  font-weight: var(title-weight);
+  font-weight: var(--title-weight);
   font-size: 18px;
   margin: 5px 0px 5px 10px;
 }
@@ -152,17 +154,14 @@
   object-fit: cover;
   border-block-end: 2px solid var(--accent-color);
   border-block-start: 2px solid var(--accent-color);
-  object-position: right;
+  object-position: center; /*right */
 }
-
-.paragraph {
+.text__block {
+  display: grid;
   padding: 25px;
-  font-weight: var(--text-weight);
-  line-height: 21px;
+  gap: 27px;
 }
-
-.sub_paragraph {
-  padding: 2px 25px 25px;
+.paragraph {
   font-weight: var(--text-weight);
   line-height: 21px;
 }
@@ -180,7 +179,11 @@
   text-transform: uppercase;
   opacity: 0.5;
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--button-accent-color);
+  text-shadow: 
+    -1px 0 0 var(--button-accent-color),
+    0 1px 0 var(--button-accent-color),
+    1px 0 0 var(--button-accent-color),
+    0 -1px 0 var(--button-accent-color);
 }
 
 .wrapper {
@@ -192,7 +195,8 @@
   display: flex;
   justify-content: end;
   margin-inline-end: 25px;
-  margin-block-end: 19px;
+  margin-block-end: 25px;
+  gap: 7px;
 }
 
 .card__like-button {
@@ -200,11 +204,12 @@
   height: 38px;
 }
 
+.button:focus {
+  outline: none;
+}
 .button:focus-visible {
   outline: none;
-  border: 2px solid var(--accent-color);
   box-shadow: 2px 2px var(--accent-color);
-  transition: 0.3s ease;
 }
 
 .button__text {
@@ -220,6 +225,8 @@
 }
 
 .button {
+  cursor: pointer;
+  transition: 0.3s ease;
   position: relative;
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
@@ -241,9 +248,13 @@
 }
 
 .card__icon-button {
-  margin-block-start: 2px;
+  max-height: 38px;
+  width: 48px;
+  cursor: pointer;
+  transition: 0.3s ease;
   border: none;
   background-color: transparent;
+  border: 2px solid transparent;
 }
 
 .card__icon-button:focus {
@@ -254,84 +265,6 @@
 .card__icon-button:focus-visible {
   outline: none;
   border: 2px solid var(--accent-color);
-  transition: 0.3s ease;
-}
-
-.like-icon .core {
-  fill: var(--background-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon .main-body {
-  fill: var(--background-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .sparks {
-  opacity: 0;
-}
-
-.like-icon:hover .core {
-  fill: var(--accent-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--accent-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon:active .core {
-  fill: var(--heart-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active .main-body {
-  fill: var(--heart-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--heart-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--heart-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--heart-color);
-  transition: fill 0.3s 0.06s linear;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s alternate ease-in 0.3s;
-}
-
-@keyframes sparks {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.like-icon.is-liked .heart {
-  animation: heart 0.3s alternate ease-in 0.1s;
-}
-
-@keyframes heart {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.05);
-  }
 }
 
 .footer {
@@ -343,14 +276,15 @@
 .footer__button {
   font-size: 14px;
   width: 339px;
-  height: 55px;
+  min-height: 55px;
 }
 
 .footer__button-picture {
   width: 21px;
   height: 21px;
   margin-inline-end: 8px;
-  color: var(--accent-color);
+  color: var(--button-accent-color);
+  mix-blend-mode: difference;
 }
 
 .footer__button-picture-modal {
@@ -398,7 +332,7 @@
 }
 
 .footer__button-text {
-  width: 234px;
+  max-width: 234px;
   height: 63px;
   font-family: "PressStart2P", fantasy;
   font-size: 14px;
@@ -436,6 +370,7 @@
   filter: grayscale(50%) contrast(200%) sepia(100%) invert(75%) saturate(0.2) blur(10px);
 }
 
+
 @media (375px >=width) {
   .page {
     width: 100%;
@@ -443,6 +378,9 @@
 
   .header__title {
     margin-block-start: 120px;
+  }
+  .main__title {
+    margin: 5px 0px 5px 13px;
   }
 
   .wrapper {
@@ -452,5 +390,13 @@
   .footer__button {
     width: 310px;
     height: 84px;
+  }
+  .footer__button-picture-modal {
+    width: 28px;
+    height: 28px;
+  }
+  .footer__button-picture {
+    width: 200px;
+    height: 26px;
   }
 }
