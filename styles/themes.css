@@ -28,7 +28,7 @@
       linear-gradient(#007f0c, #004306);
 }
 @media (prefers-color-scheme: dark) {
-    :root.theme-auto {
+    :root {
         --background-color: #000;
         --accent-color: #00cc14;
         --button-accent-color: #00cc14;
@@ -41,7 +41,7 @@
     }
 }
 @media (prefers-color-scheme: light) {
-    :root.theme-auto {
+    :root {
         --background-color: #fff;
         --accent-color: #000;
         --button-accent-color: #fff;
