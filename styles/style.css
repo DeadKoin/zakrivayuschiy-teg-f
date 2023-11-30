@@ -272,6 +272,7 @@
 }
 
 .footer__button {
+  padding-bottom: 4px; 
   font-size: 14px;
   width: 339px;
   min-height: 55px;
