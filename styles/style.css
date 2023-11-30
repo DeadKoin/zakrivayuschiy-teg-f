@@ -25,7 +25,6 @@
     -webkit-text-stroke: 1px var(--button-accent-color);
     text-stroke: 1px var(--button-accent-color);
     text-shadow: none;
-    mix-blend-mode: hard-light;
   }
 }
 .page {
@@ -51,7 +50,6 @@
 .header__title {
   margin-block-start: 136px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  overflow: hidden;
 }
 
 .header__subtitle {
@@ -143,7 +141,7 @@
 }
 
 .main__title {
-  font-weight: var(--title-weight);
+  font-variation-settings: "wght" var(--title-weight);
   font-size: 18px;
   margin: 5px 0px 5px 10px;
 }
@@ -162,7 +160,7 @@
   gap: 27px;
 }
 .paragraph {
-  font-weight: var(--text-weight);
+  font-variation-settings: "wght" var(--text-weight);
   line-height: 21px;
 }
 
@@ -196,7 +194,7 @@
   justify-content: end;
   margin-inline-end: 25px;
   margin-block-end: 25px;
-  gap: 7px;
+  gap: 6px;
 }
 
 .card__like-button {
@@ -248,11 +246,11 @@
 }
 
 .card__icon-button {
-  max-height: 38px;
-  width: 48px;
+  padding: 0;
+  height: 38px;
+  width: 42px;
   cursor: pointer;
   transition: 0.3s ease;
-  border: none;
   background-color: transparent;
   border: 2px solid transparent;
 }
@@ -285,6 +283,8 @@
   margin-inline-end: 8px;
   color: var(--button-accent-color);
   mix-blend-mode: difference;
+  z-index: 1;
+  position: relative;
 }
 
 .footer__button-picture-modal {
@@ -333,7 +333,6 @@
 
 .footer__button-text {
   max-width: 234px;
-  height: 63px;
   font-family: "PressStart2P", fantasy;
   font-size: 14px;
   font-style: normal;
@@ -370,8 +369,7 @@
   filter: grayscale(50%) contrast(200%) sepia(100%) invert(75%) saturate(0.2) blur(10px);
 }
 
-
-@media (375px >=width) {
+@media (775px >=width) {
   .page {
     width: 100%;
   }
@@ -380,7 +378,7 @@
     margin-block-start: 120px;
   }
   .main__title {
-    margin: 5px 0px 5px 13px;
+    margin: 5px 3px 5px 10px;
   }
 
   .wrapper {
@@ -392,11 +390,15 @@
     height: 84px;
   }
   .footer__button-picture-modal {
-    width: 28px;
-    height: 28px;
+    width: 90px;
   }
   .footer__button-picture {
-    width: 200px;
-    height: 26px;
+    width: 175px;
+    height: 28px;
+    margin: 5px 0px 5px ;
+  }
+  .label {
+    top: 23px;
+    right: 11px;
   }
 }
